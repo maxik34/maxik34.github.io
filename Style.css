@@ -1,21 +1,21 @@
 :root
 {
 	/* Colors */
-	--MainTitleColor: rgb(237, 113, 11);
+	--MainTitleColor: 237, 113, 11;
 	
-	--Background: rgb(40, 40, 45);
-	--BackgroundDark: rgb(28, 28, 33);
+	--Background: 40, 40, 45;
+	--BackgroundDark: 28, 28, 33;
 	
-	--Color: rgb(224, 224, 224);
-	--ColorSecondary: rgb(180, 180, 180);
-	--ColorDark: rgb(110, 110, 110);
-	--ColorDarkSecondary: rgb(90, 90, 90);
+	--Color: 224, 224, 224;
+	--ColorSecondary: 180, 180, 180;
+	--ColorDark: 110, 110, 110;
+	--ColorDarkSecondary: 90, 90, 90;
 	
-	--ScrollbarColor: rgb(37, 37, 42);
-	--ScrollbarThumbColor: rgb(100, 100, 109);
-	--ScrollbarThumbColorHover: rgb(120, 120, 129);
+	--ScrollbarColor: 37, 37, 42;
+	--ScrollbarThumbColor: 100, 100, 109;
+	--ScrollbarThumbColorHover: 120, 120, 129;
 	
-	--BorderColor: rgb(58, 58, 65);
+	--BorderColor: 58, 58, 65;
 }
 
 
@@ -26,10 +26,26 @@
 
 body
 {
-	background: var(--Background);
-	color: var(--Color);
+	background: rgb(var(--Background));
+	color: rgb(var(--Color));
 	margin: 0;
 	font-family: sans-serif;
+	line-height: 1.5em;
+}
+
+
+
+a
+{
+	color: rgb(123, 176, 245);
+	text-decoration: none;
+}
+
+
+
+a:hover
+{
+	text-decoration: underline;
 }
 
 
@@ -38,38 +54,38 @@ body
 {
 	width: 16px;
 	height: 16px;
-	background: var(--ScrollbarColor);
+	background: rgb(var(--ScrollbarColor));
 }
 
 
 
 ::-webkit-scrollbar-corner
 {
-	background: var(--ScrollbarColor);
+	background: rgb(var(--ScrollbarColor));
 }
 
 
 
 ::-webkit-scrollbar-thumb
 {
-	background: var(--ScrollbarThumbColor);
+	background: rgb(var(--ScrollbarThumbColor));
 	border-radius: 8px;
-	border: 4px solid var(--ScrollbarColor);
+	border: 4px solid rgb(var(--ScrollbarColor));
 }
 
 
 
 ::-webkit-scrollbar-thumb:hover
 {
-	background: var(--ScrollbarThumbColorHover);
+	background: rgb(var(--ScrollbarThumbColorHover));
 }
 
 
 
 #Header
 {
-	background: linear-gradient(90deg, var(--BackgroundDark) 15%, #000000A0), center url(Background.png);
-	border-bottom: 1px solid var(--BorderColor);
+	background: linear-gradient(90deg, rgb(var(--BackgroundDark)) 15%, #000000A0), center url(Images/Background.png);
+	border-bottom: 1px solid rgb(var(--BorderColor));
 }
 
 
@@ -84,7 +100,7 @@ body
 #Header h1
 {
 	margin: 0;
-    color: var(--MainTitleColor);
+    color: rgb(var(--MainTitleColor));
 }
 
 
@@ -101,15 +117,14 @@ body
 #Header p
 {
 	margin: 0;
-	line-height: 1.5em;
-	color: var(--ColorSecondary);
+	color: rgb(var(--ColorSecondary));
 }
 
 
 
 .Container
 {
-	max-width: 1536px;
+	max-width: 1696px;
 	padding: 3em 2em;
 	margin: 0 auto;
 }
@@ -125,10 +140,11 @@ body
 
 #Main h1
 {
+	line-height: 1em;
 	margin: 1em 0;
     padding-bottom: .5em;
     text-align: center;
-    border-bottom: 1px solid var(--BorderColor);
+    border-bottom: 1px solid rgb(var(--BorderColor));
 }
 
 
@@ -151,10 +167,161 @@ body
 
 
 
-.ProjectPanel
+#Projects
 {
-	display: none;
-	border: 1px solid var(--BorderColor);
-    border-radius: 6px;
-    height: 288px;
+	display: grid;
+	gap: 2em;
+	column-gap: 2em;
+	grid-template-columns: repeat(auto-fill, minmax(clamp((100% / 2) - 1rem, 31rem, 100%), 1fr));
+}
+
+
+
+#Projects > div
+{
+	border: 1px solid rgb(var(--BorderColor));
+    border-radius: 8px;
+    min-height: 416px;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+    align-items: flex-end;
+}
+
+
+
+#Projects > div > img
+{
+	opacity: .2;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	transition: opacity .5s;
+	user-select: none;
+	pointer-events: none;
+}
+
+
+
+#Projects > div .Description
+{
+	background: rgba(var(--BackgroundDark), .85);
+	padding: 0 0 1.5em 1.75em;
+	margin: .75em 1.75em 0 0;
+	box-shadow: 0px 0px 48px 64px rgba(var(--BackgroundDark), .85);
+	max-width: 640px;
+	display: flex;
+    flex-direction: column;
+	gap: 1.2em;
+}
+
+
+
+#Projects > div:hover > img
+{
+	opacity: .3;
+}
+
+
+
+#Projects > div .Status
+{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	background: rgb(var(--Background));
+	padding: 8px;
+	border: 1px solid rgb(var(--BorderColor));
+	border-radius: 6px;
+	opacity: .85;
+	font-weight: bold;
+}
+
+
+
+.Status.Development
+{
+	color: rgb(var(--MainTitleColor));
+}
+
+
+
+.Status.OnHold,
+.Status.Discontinued
+{
+	color: rgb(var(--ColorDark));
+}
+
+
+
+.Status.Development:before
+{
+	content: 'In Development';
+}
+
+
+
+.Status.OnHold:before
+{
+	content: 'On Hold';
+}
+
+
+
+.Status.Discontinued:before
+{
+	content: 'Discontinued';
+}
+
+
+
+#Main #Projects > div h1
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: flex;
+    align-items: flex-start;
+    gap: .25em;
+	text-align: left;
+}
+
+
+
+#Main #Projects > div p
+{
+	margin: 0;
+	color: rgb(var(--ColorSecondary));
+}
+
+
+
+#Main #Projects > div h1 > img
+{
+	user-select: none;
+	pointer-events: none;
+}
+
+
+
+.Buttons
+{
+	display: flex;
+	gap: .5em;
+}
+
+
+
+.Button
+{
+	background: rgb(var(--Background));
+	padding: 8px;
+	border: 1px solid rgb(var(--BorderColor));
+	border-radius: 6px;
+	opacity: .85;
+	font-weight: bold;
+	width: fit-content;
+	color: white;
 }

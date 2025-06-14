@@ -1,137 +1,215 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="icon" type="image/x-icon" href="Icon.ico">
 		<title>Home – Max_34</title>
+		<link rel="stylesheet" href="Page.css">
 		<link rel="stylesheet" href="Style.css">
 	</head>
-
+	
 	<body>
-		<div id="Header">
-			<div class="Container">
-				<table>
-					<tr>
-						<td><img src="Icon.ico"></td>
-						<td><h1>Max_34<wbr></h1></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><p>Doin' some stuff…<wbr></p></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		<div id="Main">
-			<div class="Container">
-				<h1>About<wbr></h1>
-				<p class="Todo">Write something here.<wbr></p>
+		<block id="GlobalTooltip">Copied</block>
+		
+		<block id="Header">
+			<hor class="Section MaxWidth DoubleGap">
+				<img class="Icon" src="Icon.ico">
+				<ver>
+					<h1>Max_34</h1>
+					<span>Doin’ some stuff…</span>
+				</ver>
+				<fill></fill>
 				
-				<h1>My Projects<wbr></h1>
+				<script>
+					
+					let GlobalTooltip = document.getElementById('GlobalTooltip');
+					let LastTimeoutID = 0;
+					
+					function CopyDiscordNick()
+					{
+						clearTimeout(LastTimeoutID);
+					
+						navigator.clipboard.writeText('maxik34');
+						
+						GlobalTooltip.classList.add('Visible');
+						
+						LastTimeoutID = setTimeout(() =>
+						{
+							GlobalTooltip.classList.remove("Visible");
+							
+						}, 2000);
+					}
 				
-				<div id="Projects">
-					<div>
-						<img src="Images/TSPUE-Cover.png">
-						<div class="Status Development"></div>
-						<div class="Description">
-							<h1>The Stanley Parable: Ultimate Edition<wbr></h1>
-							<p>Mod for the game <a href="https://store.steampowered.com/app/221910/The_Stanley_Parable">The Stanley Parable (2013)</a>, which improves the game, adds new content and content from the <a href="https://store.steampowered.com/app/1703340/The_Stanley_Parable_Ultra_Deluxe">Ultra Deluxe version</a> of the game. Also the launcher and some improvements for modding the game.<wbr></p>
-							<div class="Buttons">
-								<a href="https://www.moddb.com/mods/the-stanley-parable-ultimate-edition"><span class="Button">ModDB Page</span></a>
-							</div>
-						</div>
-					</div>
-					
-					<div>
-						<!-- <img src="Images/VDCEditor-Cover.png"> -->
-						<div class="Status Development"></div>
-						<div class="Description">
-							<h1><img src="Images/VDCEditor-Icon.png"> VDCEditor<wbr></h1>
-							<p>Browser extension that changes the text field for editing MediaWiki-based projects pages to a more advanced one. Originally designed for the <a href="https://developer.valvesoftware.com">Valve Developer Community</a> site, but can be used in other projects.<wbr></p>
-							<div class="Buttons">
-								<a href="https://developer.valvesoftware.com/wiki/User:Max34/VDCEditor"><span class="Button">VDC Page</span></a>
-								<a href="https://drive.google.com/file/d/1nLlIZScqa4tEzEuQ6iepLcbCAM-eBFBs/view?usp=sharing"><span class="Button">Download (version 0.1)</span></a>
-							</div>
-						</div>
-					</div>
-					
-					<div>
-						<!-- <img src="Images/Win7plus-Cover.png"> -->
-						<div class="Status Development"></div>
-						<div class="Description">
-							<h1>Windows 7+<wbr></h1>
-							<p>This is a custom image of <a href="https://en.wikipedia.org/wiki/Windows_7">Windows 7</a> with various improvements, such as a dark theme (without third-party programs), improvements in the context menu, and some other improvements.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/SR-Cover.png">
-						<div class="Status OnHold"></div>
-						<div class="Description">
-							<h1><img src="Images/SR-Icon.png"> Source Renewed<wbr></h1>
-							<p>SourceRenewed is a project based on the <a href="https://developer.valvesoftware.com/wiki/Source_SDK_Base_2013">Source SDK 2013 Singleplayer</a>. Adds some new and useful things to the engine and improves the existing ones. However, unlike <a href="https://developer.valvesoftware.com/wiki/Mapbase">Mapbase</a>, this project is not meant to be fully backward compatible with any Source branch.<wbr></p>
-							<div class="Buttons">
-								<a href="https://developer.valvesoftware.com/wiki/User:Max34/SourceRenewed"><span class="Button">VDC Page</span></a>
-							</div>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/P2CEHC-Cover.png">
-						<div class="Status">Completed?</div>
-						<div class="Description">
-							<h1><img src="Images/P2CEHC-Icon.png"> P2CE_HammerCrasher<wbr></h1>
-							<p>On April 1st, the creators of <a href="https://portal2communityedition.com">Portal 2 Community Edition</a> decided to make achievements for the <a href="https://developer.valvesoftware.com/wiki/Valve_Hammer_Editor">Hammer</a> and several achievements required you to crash the program a lot of times. I, for fun, decided to make a program that does this itself.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/Steelfeathers-Cover.png">
-						<div class="Status OnHold"></div>
-						<div class="Description">
-							<h1>New Steelfeathers Enchanted Pack<wbr></h1>
-							<p class="Todo">Add Description.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/TMP-Cover.png">
-						<div class="Status OnHold"></div>
-						<div class="Description">
-							<h1>TrayMusicPlayer<wbr></h1>
-							<p class="Todo">Add Description.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<!-- <img src="Images/ActiveCollege-Cover.png"> -->
-						<div class="Status Discontinued"></div>
-						<div class="Description">
-							<h1><img src="Images/ActiveCollege-Icon.png"> ActiveCollege<wbr></h1>
-							<p class="Todo">Add Description.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/Fast_Work-Cover.png">
-						<div class="Status Discontinued"></div>
-						<div class="Description">
-							<h1><img src="Images/Fast_Work-Icon.png"> Fast_Work<wbr></h1>
-							<p class="Todo">Add Description.<wbr></p>
-						</div>
-					</div>
-					
-					<div>
-						<img src="Images/RIS-Cover.png">
-						<div class="Status Discontinued"></div>
-						<div class="Description">
-							<h1>R.I.S<wbr></h1>
-							<p class="Todo">Add Description.<wbr></p>
-						</div>
-					</div>
-				</div>
+				</script>
 				
-				<h1>See Also<wbr></h1>
-				<p class="Todo">Write something here.<wbr></p>
-			</div>
-		</div>
+				<svg class="RoundLink" style="cursor:pointer" tabindex="0" viewBox="0 0 512 512" width="32" onclick="CopyDiscordNick()" onkeypress="if (event.key === 'Enter') CopyDiscordNick()"><path fill="rgb(var(--TextColor))" d="M 308.506 114.631 C 304.884 121.138 301.603 127.827 298.676 134.675 C 284.535 132.541 270.255 131.468 255.956 131.463 C 241.679 131.463 227.333 132.547 213.232 134.646 C 210.352 127.848 207.007 121.108 203.377 114.627 C 176.793 119.17 150.911 127.142 126.379 138.347 C 77.656 210.423 64.452 280.699 71.054 349.976 C 99.583 371.049 131.515 387.075 165.458 397.359 C 173.071 387.084 179.89 376.144 185.679 364.761 C 174.633 360.644 163.974 355.557 153.825 349.559 C 156.496 347.623 159.108 345.627 161.631 343.69 C 191.138 357.549 223.379 364.777 255.999 364.777 C 288.621 364.777 320.861 357.549 350.37 343.689 C 352.923 345.772 355.535 347.767 358.175 349.556 C 348.006 355.566 337.329 360.667 326.263 364.799 C 332.073 376.207 338.838 387.105 346.485 397.373 C 380.457 387.122 412.409 371.098 440.944 350.003 C 448.69 269.666 427.71 200.036 385.487 138.302 C 360.968 127.087 335.089 119.129 308.506 114.631 Z M 440.944 350.005 L 440.952 349.997 C 440.949 349.999 440.947 350.001 440.944 350.003 C 440.944 350.004 440.944 350.004 440.944 350.005 Z M 256 0 C 397.385 0 512 114.615 512 256 C 512 397.385 397.385 512 256 512 C 114.615 512 0 397.385 0 256 C 0 114.615 114.615 0 256 0 Z M 160.431 270.136 C 160.431 249.596 175.102 232.754 193.969 232.754 C 212.837 232.754 227.918 249.596 227.596 270.136 C 227.272 290.676 212.778 307.372 194.028 307.372 C 175.632 307.372 160.431 290.676 160.431 270.136 Z M 284.403 270.136 C 284.403 249.596 299.074 232.754 317.971 232.754 C 336.867 232.754 351.832 249.596 351.508 270.136 C 351.186 290.676 336.72 307.372 317.971 307.372 C 299.543 307.372 284.403 290.676 284.403 270.136 Z" style="stroke-width: 1;"/></svg>
+				
+				<a class="RoundLink" style="height:32px" href="https://github.com/maxik34"><svg viewBox="0 0 16 16" width="32"><path fill="rgb(var(--TextColor))" d="M 8 0.007 C 3.58 0.007 -0.001 3.675 -0.001 8.202 C -0.001 11.827 2.289 14.495 5.469 15.581 C 5.87 15.724 6.019 15.802 6.019 15.587 C 6.019 15.393 6.01 14.748 6.01 14.061 C 3.999 14.441 3.479 13.559 3.32 13.099 C 3.229 12.863 2.839 12.136 2.499 11.941 C 2.219 11.788 1.819 11.409 2.489 11.398 C 3.12 11.387 3.57 11.991 3.719 12.238 C 4.439 13.476 5.589 13.129 6.049 12.914 C 6.12 12.382 6.33 12.023 6.56 11.817 C 4.78 11.612 2.919 10.906 2.919 7.772 C 2.919 6.88 3.229 6.142 3.739 5.57 C 3.66 5.365 3.38 4.524 3.82 3.397 C 3.82 3.397 4.489 3.182 6.019 4.238 C 6.67 4.053 7.343 3.959 8.02 3.961 C 8.7 3.961 9.38 4.053 10.02 4.238 C 11.551 3.172 12.22 3.397 12.22 3.397 C 12.66 4.524 12.38 5.365 12.301 5.57 C 12.811 6.142 13.12 6.87 13.12 7.772 C 13.12 10.915 11.25 11.612 9.47 11.817 C 9.761 12.074 10.011 12.567 10.011 13.334 C 10.011 14.43 10.001 15.311 10.001 15.587 C 10.001 15.802 10.163 15.706 10.55 15.581 C 13.807 14.455 16.001 11.723 16.001 8.202 C 16.001 3.675 12.421 0.007 8 0.007 Z"></path></svg></a>
+			</hor>
+		</block>
+		
+		<block id="Main" class="Section MaxWidth">
+		
+			<h1>About</h1>
+			
+			<p>Welcome to my page where I try to show and tell about all the projects and things I have worked with or am working on now. I do many things alone and very often I don't finish my projects, but I still return to them from time to time.</p>
+			
+			<h1>My Projects</h1>
+			
+			<p class="Note">Many projects are still in the development stage, if you want to help with something or have suggestions, you can DM me.</p>
+			
+			<block id="Projects">
+				
+				<block>
+					<img src="Images/Cover-TSPUE.png">
+					<ver class="Description">
+						<h2>The Stanley Parable: Ultimate Edition</h2>
+						<p>Mod for the game <a href="https://store.steampowered.com/app/221910/The_Stanley_Parable">The Stanley Parable (2013)</a>, which improves the game, adds new content and content from the <a href="https://store.steampowered.com/app/1703340/The_Stanley_Parable_Ultra_Deluxe">Ultra Deluxe version</a> of the game. Also the launcher and some improvements for modding the game.</p>
+						<a class="Button" href="https://www.moddb.com/mods/the-stanley-parable-ultimate-edition">ModDB Page</a>
+					</ver>
+				</block>
+				
+				<block>
+					<!-- <img src="Images/Cover-WOGPlus.png"> -->
+					<ver class="Description">
+						<h2>World of Goo Plus</h2>
+						<p>Remaster of the game <a href="https://en.wikipedia.org/wiki/World_of_Goo">World of Goo</a>. Basically a complete creation of all textures from scratch and improvements for modding the game.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<!-- <img src="Images/Cover-VDCEditor.png"> -->
+					<ver class="Description">
+						<h2><hor>
+							<svg width="32" viewBox="0 0 16 16"><rect width="16" height="16" fill="#444" rx="2" ry="2"></rect><path fill="#303030" d="M5 1h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1Z"></path><path fill="#202020" d="M2 1h2v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"></path><path fill="#CCC" d="M2.5 3a.5.5 0 1 1-.5.5.5.5 0 0 1 .5-.5Zm0 3a.5.5 0 1 1-.5.5.5.5 0 0 1 .5-.5Zm0 3a.5.5 0 1 1-.5.5.5.5 0 0 1 .5-.5Zm0 3a.5.5 0 1 1-.5.5.5.5 0 0 1 .5-.5Z"></path><rect width="2" height="1" x="9" y="6" fill="#FF1493" rx=".5" ry=".5"></rect><path fill="coral" d="M10.5 9h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1 0-1Zm-4 0h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1Zm6-3h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1 0-1Zm-6 0h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1 0-1Z"></path><path fill="#3C96E1" d="M6.5 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1Zm4-9h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1 0-1Z"></path><path fill="#228B22" d="M11.5 12h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1 0-1Zm-5-9h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1Z"></path></svg>
+							VDCEditor
+						</hor></h2>
+						<p>Browser extension that changes the text field for editing MediaWiki-based projects pages to a more advanced one. Originally designed for the <a href="https://developer.valvesoftware.com">Valve Developer Community</a> site, but can be used in other projects.</p>
+						<hor>
+							<a class="Button" href="https://developer.valvesoftware.com/wiki/User:Max34/VDCEditor">VDC Page</a>
+							<a class="Button" href="https://drive.google.com/file/d/1nLlIZScqa4tEzEuQ6iepLcbCAM-eBFBs/view?usp=sharing">Download (version 0.1)</a>
+						</hor>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-SR.png">
+					<ver class="Description">
+						<h2><hor><img class="Icon" src="Images/Icon-SR.png">Source Renewed</hor></h2>
+						<p>SourceRenewed is a project based on the <a href="https://developer.valvesoftware.com/wiki/Source_SDK_Base_2013">Source SDK 2013 Singleplayer</a>. Adds some new and useful things to the engine and improves the existing ones. However, unlike <a href="https://developer.valvesoftware.com/wiki/Mapbase">Mapbase</a>, this project is not meant to be fully backward compatible with any Source branch.</p>
+						<a class="Button" href="https://developer.valvesoftware.com/wiki/User:Max34/SourceRenewed">VDC Page</a>
+					</ver>
+				</block>
+				
+				<block>
+					<!-- <img src="Images/Cover-Win7Plus.png"> -->
+					<ver class="Description">
+						<h2>Windows 7+</h2>
+						<p>This is a custom image of <a href="https://en.wikipedia.org/wiki/Windows_7">Windows 7</a> with various improvements, such as a dark theme (without third-party programs), improvements in the context menu, and some other improvements.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<!-- <img src="Images/Cover-AeroPlus.png"> -->
+					<ver class="Description">
+						<h2>Aero+</h2>
+						<p>Improved version of <code>aero.msstyles</code> file for Windows 7. What has been changed: improved corner rounding (more smoothed), changing old textures that do not fit into the aero style, like the language button in the taskbar or buttons in Taskband Extended UI, as well as other minor improvements.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-P2CEHCrasher.png">
+					<ver class="Description">
+						<h2><hor><img class="Icon" src="Images/Icon-P2CEHCrasher.png">P2CE HammerCrasher</hor></h2>
+						<p>On April 1st, the creators of <a href="https://portal2communityedition.com">Portal 2 Community Edition</a> decided to make achievements for the <a href="https://developer.valvesoftware.com/wiki/Valve_Hammer_Editor">Hammer</a> and several achievements required you to crash the program a lot of times. I, for fun, decided to make a program that does this itself.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-Steelfeathers.png">
+					<ver class="Description">
+						<h2>New Steelfeathers Enchanted Pack</h2>
+						<p>Texture pack that i liked. This is an attempt to update it to new versions of minecraft.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-TMP.png">
+					<ver class="Description">
+						<h2>TrayMusicPlayer</h2>
+						<p>A small program for playing music (local files only) directly from the tray.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<!-- <img src="Images/Cover-ActiveCollege.png"> -->
+					<ver class="Description">
+						<h2><hor><img class="Icon" src="Images/Icon-ActiveCollege.png">ActiveCollege</hor></h2>
+						<p>My Diploma program. Simplifies work with <a href="https://en.wikipedia.org/wiki/Active_Directory">Microsoft Active Directory</a>.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-FW.png">
+					<ver class="Description">
+						<h2><hor><img class="Icon" src="Images/Icon-FW.png">Fast_Work</hor></h2>
+						<p>A program I made in college. Our college had a problem where when you logged into your account from another computer, your desktop (files, shortcuts, etc.) on the other PC was not transferred. This program was aimed at solving this problem.</p>
+					</ver>
+				</block>
+				
+				<block>
+					<img src="Images/Cover-RIS.png">
+					<ver class="Description">
+						<h2>R.I.S.</h2>
+						<p>My first game made on <a href="https://en.wikipedia.org/wiki/Construct_(game_engine)#Construct_Classic_2">Construct Classic</a>. The name is an acronym in Russian <code>РИС</code>, which means <u>rice</u> and stands for <code>Работай и строй</code> (work and build). A simple 2D game in which you need to furnish your home (room).</p>
+					</ver>
+				</block>
+				
+			</block>
+			
+			<h1>Projects I work on (not mine)</h1>
+			
+			<block id="Projects">
+				
+				<block style="background:rgb(144 107 50 / .75)">
+					<img style="opacity:.5" src="Images/Cover-NFH3D.png" width="600">
+					<ver class="Description">
+						<h2>Neighbours from Hell 3D</h2>
+						<p>Youtuber Sweepe decided to make a game <a href="https://en.wikipedia.org/wiki/Neighbours_from_Hell">Neighbours from Hell</a> in 3D. I offered my help in the development of the project (mainly creating a new UI). The logo on this tile was made by me (I also made versions in many other languages).</p>
+						<hor>
+							<a class="Button" href="https://sweepe-youtube.itch.io/neighbours-from-hell-3d">Itch.io Page</a>
+							<a class="Button" href="https://www.youtube.com/@sweeepeeee">Sweepe on YouTube</a>
+							<a class="Button" href="https://discord.com/invite/pznyk5KyZK">Sweepe Discord Server</a>
+						</hor>
+					</ver>
+				</block>
+				
+				<block style="background:rgb(0 0 0 / .75)">
+					<img src="Images/Cover-Deltarune.png" style="image-rendering:pixelated; opacity:.5" width="448">
+					<ver class="Description">
+						<h2>DELTARUNE Russian Translation (Fan)</h2>
+						<p>From DarkgoD Team. There is nothing much to write here, the title speaks for itself.</p>
+						<a class="Button" href="https://discord.gg/qJE66D8aUS">DarkgoD Discord Server</a>
+					</ver>
+				</block>
+				
+				<block style="background:rgb(254 194 112 / .75)">
+					<img style="opacity:.75" src="Images/Cover-WOG.png" width="500">
+					<ver class="Description">
+						<h2>World of Goo Russian Translation (Official)</h2>
+						<p>Some time after the release of World of Goo 2, the developers themselves wrote to all Russian translators with an offer to translate the first game (the first game did not have an official Russian translation). Everyone, including me, agreed.</p>
+						<a class="Button" href="https://store.steampowered.com/app/22000/World_of_Goo/">Steam Page</a>
+					</ver>
+				</block>
+				
+				<block style="background:rgb(200 108 131 / .75)">
+					<img style="opacity:.75" src="Images/Cover-WOG2.png" width="400">
+					<ver class="Description">
+						<h2>World of Goo 2 Russian Translation (Official)</h2>
+						<p>Long before the release of World of Goo 2, the developers wrote that those who wish could help translate the game into different languages. I and the rest of <b>Team_34</b> decided to participate in this.</p>
+						<a class="Button" href="https://store.steampowered.com/app/3385670/World_of_Goo_2/">Steam Page</a>
+					</ver>
+				</block>
+			</block>
+		</block>
 	</body>
 </html>

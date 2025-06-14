@@ -1,0 +1,87 @@
+/* ================================= */
+/* My New HTML (Page) idea imitation */
+/* ================================= */
+
+/* div Replacement */
+block
+{
+	display: block;
+	flex: 1;
+}
+
+
+/* Block with Horizontal content */
+hor
+{
+	display: flex;
+	align-items: center;
+	gap: .5em;
+}
+
+
+/* Block with Vertical content */
+ver
+{
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}
+
+
+/* Empty space filler */
+fill
+{
+	flex: 1;
+}
+
+
+
+
+
+
+/* ===================== */
+/* Changing Basic Styles */
+/* ===================== */
+
+*
+{
+	box-sizing: border-box;
+}
+
+
+/* Fixes Tab focus appearing during normal interactions */
+:focus:not(:focus-visible)
+{
+	outline: none;
+}
+
+
+/* Removes the ability to highlight the placeholder text */
+input:placeholder-shown
+{
+	user-select: none;
+}
+
+
+/* Improved Tab Focus Styling */
+:focus-visible
+{
+	outline: 2px solid;
+	outline-offset: 1px;
+	border-radius: 2px;
+	z-index: 1;
+}
+
+
+p
+{
+	margin: .4em 0;
+}
+
+
+ul
+{
+	list-style-type: square;
+	margin: .3em 0 .3em 1.6em;
+	padding: 0;
+}

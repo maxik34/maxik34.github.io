@@ -1,51 +1,30 @@
 :root
 {
-	/* Colors */
-	--MainTitleColor: 237, 113, 11;
+	--PrimaryColor: 237, 113, 11;
+	--FocusColor: 85, 153, 238;
 	
-	--Background: 40, 40, 45;
-	--BackgroundDark: 28, 28, 33;
+	--BackgroundColor: 44, 45, 50;
+	--BackgroundFrontColor: 50, 51, 57;
+	--BorderColor: 64, 66, 72;
+	--TextColor: 223, 224, 226;
+	--TextColorSecondary: 196, 197, 201;
+	--LinkColor: 123, 176, 245;
 	
-	--Color: 224, 224, 224;
-	--ColorSecondary: 180, 180, 180;
-	--ColorDark: 110, 110, 110;
-	--ColorDarkSecondary: 90, 90, 90;
+	--ScrollbarColor: 44, 45, 50;
+	--ScrollbarThumbColor: 113, 114, 122;
+	--ScrollbarThumbColorHover: 128, 130, 139;
 	
-	--ScrollbarColor: 37, 37, 42;
-	--ScrollbarThumbColor: 100, 100, 109;
-	--ScrollbarThumbColorHover: 120, 120, 129;
+	--TransitionSpeed: .2s;
+	--BorderSize: 2px;
 	
-	--BorderColor: 58, 58, 65;
+	--NoteColor: rgb(230, 233, 190);
 }
 
 
 
-* { box-sizing: border-box; }
-
-
-
-body
+:focus-visible
 {
-	background: rgb(var(--Background));
-	color: rgb(var(--Color));
-	margin: 0;
-	font-family: sans-serif;
-	line-height: 1.5em;
-}
-
-
-
-a
-{
-	color: rgb(123, 176, 245);
-	text-decoration: none;
-}
-
-
-
-a:hover
-{
-	text-decoration: underline;
+	outline-color: rgb(var(--FocusColor));
 }
 
 
@@ -69,8 +48,8 @@ a:hover
 ::-webkit-scrollbar-thumb
 {
 	background: rgb(var(--ScrollbarThumbColor));
-	border-radius: 8px;
 	border: 4px solid rgb(var(--ScrollbarColor));
+	border-radius: 8px;
 }
 
 
@@ -82,17 +61,115 @@ a:hover
 
 
 
-#Header
+body
 {
-	background: linear-gradient(90deg, rgb(var(--BackgroundDark)) 15%, #000000A0), center url(Images/Background.png);
-	border-bottom: 1px solid rgb(var(--BorderColor));
+	margin: 0;
+	background: rgb(var(--BackgroundColor));
+	color: rgb(var(--TextColor));
+	font-family: sans-serif;
 }
 
 
 
-#Header td
+code
 {
-	padding: 0;
+	font-family: monospace, monospace;
+    padding: 0 2px;
+    border-radius: 4px;
+    background: rgb(0 0 0 / 16%);
+    border: 1px solid rgb(255 255 255 / 10%);
+}
+
+
+
+a:any-link
+{
+	color: rgb(var(--LinkColor));
+	text-decoration: none;
+}
+
+
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+
+
+#GlobalTooltip
+{
+	opacity: 0;
+	position: fixed;
+	justify-self: anchor-center;
+	top: 0;
+	padding: 6px 8px;
+	background-color: rgb(var(--BackgroundColor), .75);
+	border: var(--BorderSize) solid rgb(var(--BorderColor));
+	border-radius: 8px;
+	color: var(--TextColor);
+	text-align: center;
+	font-size: 1.25em;
+	box-shadow: 0 0 6px 2px #00000060;
+	transition: top var(--TransitionSpeed), opacity var(--TransitionSpeed);
+	pointer-events: none;
+	user-select: none;
+	z-index: 1000;
+}
+
+
+
+
+#GlobalTooltip.Visible
+{
+	top: 16px;
+	opacity: 1;
+}
+
+
+
+.Section
+{
+	padding: 3em 2.5em;
+}
+
+
+
+.MaxWidth
+{
+	max-width: 1680px;
+	margin: 0 auto;
+}
+
+
+
+.DoubleGap
+{
+	gap: 1em;
+}
+
+
+
+.RoundLink
+{
+	overflow: visible;
+	border-radius: 50%;
+    outline-offset: 2px;
+}
+
+
+
+#Header
+{
+	background: linear-gradient(#000000cc, rgb(var(--BackgroundColor))), url(Images/Header-Background.png);
+}
+
+
+
+.Icon
+{
+	pointer-events: none;
+	user-select: none;
 }
 
 
@@ -100,38 +177,19 @@ a:hover
 #Header h1
 {
 	margin: 0;
-    color: rgb(var(--MainTitleColor));
+    color: rgb(var(--PrimaryColor));
 }
 
 
 
-#Header img
+#Header span
 {
-	user-select: none;
-	pointer-events: none;
-	margin-right: .5em;
+	color: rgb(var(--TextColorSecondary));
 }
 
 
 
-#Header p
-{
-	margin: 0;
-	color: rgb(var(--ColorSecondary));
-}
-
-
-
-.Container
-{
-	max-width: 1696px;
-	padding: 3em 2em;
-	margin: 0 auto;
-}
-
-
-
-#Main h1:first-child
+#Main > :first-child
 {
 	margin-top: 0;
 }
@@ -141,28 +199,10 @@ a:hover
 #Main h1
 {
 	line-height: 1em;
-	margin: 1em 0;
+	margin: 1.25em 0 .75em;
     padding-bottom: .5em;
     text-align: center;
-    border-bottom: 1px solid rgb(var(--BorderColor));
-}
-
-
-
-.Todo
-{
-	border: 1px solid rgba(128, 255, 128, 12%);
-	background: rgba(128, 255, 128, 6%);
-    padding: 6px;
-    border-radius: 6px;
-}
-
-
-
-.Todo:before
-{
-	content: 'Todo: ';
-	color: rgb(128, 255, 128, 50%);
+    border-bottom: var(--BorderSize) solid rgb(var(--BorderColor));
 }
 
 
@@ -172,32 +212,33 @@ a:hover
 	display: grid;
 	gap: 2em;
 	column-gap: 2em;
-	grid-template-columns: repeat(auto-fill, minmax(clamp((100% / 2) - 1rem, 31rem, 100%), 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(clamp((100% / 2) - 1rem, 32rem, 100%), 1fr));
+	margin: 1.5em 0;
 }
 
 
 
-#Projects > div
+#Projects > block
 {
-	border: 1px solid rgb(var(--BorderColor));
-    border-radius: 8px;
-    min-height: 416px;
+	border: var(--BorderSize) solid rgb(var(--BorderColor));
+    border-radius: 12px;
+    min-height: 420px;
 	overflow: hidden;
 	position: relative;
 	display: flex;
     align-items: flex-end;
+	background: rgb(var(--BackgroundFrontColor));
 }
 
 
 
-#Projects > div > img
+#Projects > block > img
 {
-	opacity: .2;
+	opacity: .25;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: -1;
 	transition: opacity .5s;
 	user-select: none;
 	pointer-events: none;
@@ -205,123 +246,55 @@ a:hover
 
 
 
-#Projects > div .Description
+#Projects > block .Description
 {
-	background: rgba(var(--BackgroundDark), .85);
-	padding: 0 0 1.5em 1.75em;
-	margin: .75em 1.75em 0 0;
-	box-shadow: 0px 0px 48px 64px rgba(var(--BackgroundDark), .85);
-	max-width: 640px;
+	background: rgb(24, 24, 24, .7);
+	padding: .5em 0 1.5em;
+	padding-inline-start: 1.75em;
+	margin-inline-end: 2em;
+	box-shadow: 0px 0px 48px 64px rgb(24, 24, 24, .7);
+	max-width: 620px;
 	display: flex;
     flex-direction: column;
-	gap: 1.2em;
+	z-index: 1;
 }
 
 
 
-#Projects > div:hover > img
-{
-	opacity: .3;
-}
-
-
-
-#Projects > div .Status
-{
-	position: absolute;
-	top: 1em;
-	right: 1em;
-	background: rgb(var(--Background));
-	padding: 8px;
-	border: 1px solid rgb(var(--BorderColor));
-	border-radius: 6px;
-	opacity: .85;
-	font-weight: bold;
-}
-
-
-
-.Status.Development
-{
-	color: rgb(var(--MainTitleColor));
-}
-
-
-
-.Status.OnHold,
-.Status.Discontinued
-{
-	color: rgb(var(--ColorDark));
-}
-
-
-
-.Status.Development:before
-{
-	content: 'In Development';
-}
-
-
-
-.Status.OnHold:before
-{
-	content: 'On Hold';
-}
-
-
-
-.Status.Discontinued:before
-{
-	content: 'Discontinued';
-}
-
-
-
-#Main #Projects > div h1
-{
-	border: 0;
-	padding: 0;
-	margin: 0;
-	display: flex;
-    align-items: flex-start;
-    gap: .25em;
-	text-align: left;
-}
-
-
-
-#Main #Projects > div p
+#Projects > block h2
 {
 	margin: 0;
-	color: rgb(var(--ColorSecondary));
-}
-
-
-
-#Main #Projects > div h1 > img
-{
-	user-select: none;
-	pointer-events: none;
-}
-
-
-
-.Buttons
-{
-	display: flex;
-	gap: .5em;
 }
 
 
 
 .Button
 {
-	background: rgb(var(--Background));
+	background: rgb(var(--BackgroundColor));
 	padding: 8px;
-	border: 1px solid rgb(var(--BorderColor));
+	border: var(--BorderSize) solid rgb(var(--BorderColor));
 	border-radius: 6px;
 	opacity: .85;
 	font-weight: bold;
 	width: fit-content;
-	color: white;
+	color: white !important;
+}
+
+
+
+.Note
+{
+	border: var(--BorderSize) solid rgb(from var(--NoteColor) r g b / 12%);
+	background: rgb(from var(--NoteColor) r g b / 6%);
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+
+
+.Note:before
+{
+	content: 'Note: ';
+	color: rgb(from var(--NoteColor) r g b / 80%);
+	font-size: 1.2em;
 }
